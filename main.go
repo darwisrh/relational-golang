@@ -20,6 +20,9 @@ func main() {
 
 	routes.RouteInit(r.PathPrefix("/api/v1").Subrouter())
 
+	// Untuk mengakses file upload
+	r.PathPrefix("/uploads").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("./uploads"))))
+
 	fmt.Println("server running localhost:6000")
 	http.ListenAndServe("localhost:6000", r)
 }

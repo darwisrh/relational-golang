@@ -1,33 +1,37 @@
 package models
 
-import "time"
-
 type Trip struct {
-	ID             int             `json:"id"`
-	Title          string          `json:"title" gorm:"type: varchar(255)`
-	CountryId      int             `json:"countryid" form:"countryid"`
-	Country        CountryResponse `json:"country"`
-	Accomodation   string          `json:"accomodation" gorm:"type: varchar(100)`
-	Transportation string          `json:"transportation" gorm:"type: varchar(100)`
-	Eat            string          `json:"eat" gorm:"type: varchar(50)`
-	Day            int             `json:"day"`
-	Night          int             `json:"day"`
-	DateTrip       time.Time       `json:"-"`
-	Price          int             `json:"price"`
-	Quota          int             `json:"quota"`
-	Description    string          `json:"description" gorm:"type: varchar(255)`
-	Image          string          `json:"description" gorm:"type: varchar(100)`
+	ID             int     `json:"id"`
+	Title          string  `json:"title" gorm:"type: varchar(255)"`
+	CountryId      int     `json:"countryid" form:"countryid" gorm:"type: foreignkey"`
+	Country        Country `json:"country"`
+	Accomodation   string  `json:"accomodation" gorm:"type: varchar(100)"`
+	Transportation string  `json:"transportation" gorm:"type: varchar(100)"`
+	Eat            string  `json:"eat" gorm:"type: varchar(50)"`
+	Day            string  `json:"day" gorm:"type: varchar(50)"`
+	Night          string  `json:"night" gorm:"type: varchar(50)"`
+	DateTrip       string  `json:"datetrip" gorm:"type: varchar(50)"`
+	Price          int     `json:"price"`
+	Quota          int     `json:"quota"`
+	Description    string  `json:"description" gorm:"type: varchar(255)"`
+	Image          string  `json:"image" gorm:"type: varchar(100)"`
 }
 
 type TripResponse struct {
-	ID             int    `json:"id"`
-	Title          string `json:"title" gorm:"type: varchar(255)`
-	IdCountry      int    `json:"id_country"`
-	Accomodation   string `json:"accomodation" gorm:"type: varchar(100)`
-	Transportation string `json:"transportation" gorm:"type: varchar(100)`
-	Eat            string `json:"eat" gorm:"type: varchar(50)`
-	Day            int    `json:"day"`
-	Night          int    `json:"day"`
+	ID             int             `json:"id"`
+	Title          string          `json:"title" gorm:"type: varchar(255)"`
+	CountryId      int             `json:"countryid" form:"countryid" gorm:"type: foreignkey"`
+	Country        CountryResponse `json:"country"`
+	Accomodation   string          `json:"accomodation" gorm:"type: varchar(100)"`
+	Transportation string          `json:"transportation" gorm:"type: varchar(100)"`
+	Eat            string          `json:"eat" gorm:"type: varchar(50)"`
+	Day            string          `json:"day" gorm:"type: varchar(50)"`
+	Night          string          `json:"night" gorm:"type: varchar(50)"`
+	DateTrip       string          `json:"datetrip" gorm:"type: varchar(50)"`
+	Price          int             `json:"price"`
+	Quota          int             `json:"quota"`
+	Description    string          `json:"description" gorm:"type: varchar(255)"`
+	Image          string          `json:"image" gorm:"type: varchar(100)"`
 }
 
 func (TripResponse) TableName() string {
